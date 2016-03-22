@@ -1,20 +1,23 @@
-<h1>House Advisor</h1>
+{% extends "estates/base.html" %}
 
+{% block content %}
+	
+	<p>
+		<a href="{% url "estates:new" %}">Agregar Propiedad</a>
+	</p>
 
-<p>
-	<a href="{% url "estates:new" %}">Agregar Propiedad</a>
-</p>
+	<ul>
+		{% for estate in object_list %}
+			<li>
+				<p>{{ estate.title }}</p>
+				<a href="{% url "estates:detail" estate.id %}"><img src="{{ estate.image.url }}" width="400" height="200"></a>
+				<p>
+					<a href="{% url "estates:detail" estate.id %}">Ver</a>
+					<a href="{% url "estates:edit" estate.id %}">Editar</a>
+					<a href="{% url "estates:delete" estate.id %}">Borrar</a>
+				</p>
+			</li>
+		{% endfor %}
+	</ul>
 
-<ul>
-	{% for estate in object_list %}
-		<li>
-			<p>{{ estate.title }}</p>
-			<a href="{% url "estates:detail" estate.id %}"><img src="{{ estate.image.url }}" width="400" height="200"></a>
-			<p>
-				<a href="{% url "estates:detail" estate.id %}">Ver</a>
-				<a href="{% url "estates:edit" estate.id %}">Editar</a>
-				<a href="{% url "estates:delete" estate.id %}">Borrar</a>
-			</p>
-		</li>
-	{% endfor %}
-</ul>
+{% endblock content %}

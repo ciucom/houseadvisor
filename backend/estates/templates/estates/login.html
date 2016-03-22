@@ -1,0 +1,20 @@
+{% extends "estates/base.html" %}
+
+{% block login_content %}
+	<h1>login</h1>
+	<form action="" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="action" value="login">
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<button type="submit">login</button>
+	</form>
+	<h1>signup</h1>
+	<form action="" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="action" value="signup">
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<button>signup</button>
+	</form>
+{% endblock login_content %}

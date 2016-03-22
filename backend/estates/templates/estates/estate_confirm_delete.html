@@ -1,5 +1,5 @@
 <form method="post">
 	{% csrf_token %}
-	¿Estás seguro que deseas borrar el curso "{{ object }}"
+	¿Estás seguro que deseas borrar esta propiedad? "{{ object.title }}"
 	<input type="submit" value='Submit' />
 </form>
